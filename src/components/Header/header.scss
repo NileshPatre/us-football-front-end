@@ -1,0 +1,21 @@
+.header {
+  background-color: #333;
+  .navbar-brand {
+    font-size: 24px;
+  }
+  .team-logo {
+    width: 40px; // Adjust as needed
+    height: 40px; // Adjust as needed
+    margin-right: 5px;
+  }
+  .team-name {
+    font-size: 18px;
+  }
+  .header__versus {
+    font-size: 24px;
+    margin: 10px 0;
+    @media (min-width: 992px) {
+      display: none; // Hide on larger screens
+    }
+  }
+}
