@@ -3,7 +3,7 @@ export type Score = {
   value: string;
   score: string | number;
 };
-type LastFiveGames = {
+export type LastFiveGames = {
   gameNo: number;
   stats: string | number;
 };
@@ -44,6 +44,7 @@ export type ScoreOverview = {
 export type CardGroup = {
   title: string;
   cardDetails: CardDetails[];
+  lastFiveGames: LastFiveGamesForChart[];
 };
 export type CompareGroup = {
   cardGroup: CardGroup[];
@@ -66,3 +67,9 @@ export type ParsedData = {
   touchDownsDetails: PlayerCardStats;
 };
 export type ScoreOverviewHeader = TeamsHeaders & { score: string | number };
+export type LastFiveGamesForChart = {
+  gameNo: number;
+  gameNoLabel: string;
+  stats: string | number;
+  statValue: number;
+};

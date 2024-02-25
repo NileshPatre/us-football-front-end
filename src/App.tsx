@@ -1,11 +1,10 @@
-import React from "react";
 import "./App.css";
 import TeamsStats from "./components/TeamsStats";
 import { QueryClient, QueryClientProvider } from "react-query";
 const queryClient = new QueryClient();
 function App() {
   return (
-    <div>
+    <div className="appTheme">
       <QueryClientProvider client={queryClient}>
         <TeamsStats />
       </QueryClientProvider>

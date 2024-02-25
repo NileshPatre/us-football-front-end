@@ -5,6 +5,8 @@ import Header from "../Header";
 import OverviewCard from "../OverviewCard";
 import PlayerCard from "../PlayerCard";
 import { ParsedData, TeamDetails } from "../../types/globalTypes";
+import SubscriptionComponent from "../Subscription";
+import ErrorComponent from "../Error";
 const TeamsStats = () => {
   const { data, isLoading, isError } = useQuery<TeamDetails[], Error>(
     "teamDetails",
@@ -24,15 +26,23 @@ const TeamsStats = () => {
 
   return (
     <>
-      <Header />
       {parsedData ? (
         <>
+          <Header headerData={parsedData?.headerDetails} />
           <OverviewCard cardData={parsedData.scoreOverView} />
-          <PlayerCard cardData={parsedData.passingDetails} />
-          <PlayerCard cardData={parsedData.rushingDetails} />
-          <PlayerCard cardData={parsedData.receivingDetails} />
-          <PlayerCard cardData={parsedData.touchDownsDetails} />
+          <PlayerCard cardData={parsedData.passingDetails} showGraph={true} />
+          <PlayerCard cardData={parsedData.rushingDetails} showGraph={true} />
+          <PlayerCard cardData={parsedData.receivingDetails} showGraph={true} />
+          <PlayerCard
+            cardData={parsedData.touchDownsDetails}
+            showGraph={true}
+          />
+          <SubscriptionComponent />
         </>
+      ) : isLoading ? (
+        <ErrorComponent message={"Loading..."} />
+      ) : isError ? (
+        <ErrorComponent message={"Error"} />
       ) : (
         ""
       )}
