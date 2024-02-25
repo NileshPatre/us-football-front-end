@@ -1,0 +1,56 @@
+.overview-card {
+  margin: 20px;
+  border: 2px solid #c4c5c7f0;
+  .card-header {
+    font-size: 25px;
+    font-weight: bold;
+    font-style: italic;
+    background: linear-gradient(to right, #d43a28, #4d4be7);
+    color: white;
+  }
+  .card-body {
+    background-color: rgb(45 53 61);
+    color: white;
+
+    .team-header {
+      font-weight: bold;
+      font-size: 20px;
+
+      &.team-header-even {
+        &.bg-primary {
+          background-color: rgb(255 54 54) !important;
+        }
+      }
+
+      &.team-header-odd {
+        &.bg-primary {
+          background-color: rgb(24 127 206) !important;
+        }
+      }
+    }
+  }
+}
+.stats-list {
+  margin: 20px;
+  border: 2px solid white;
+  .stats-item {
+    background-color: rgb(45 53 61);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    .stat-badge {
+      font-size: 15px;
+      color: black;
+    }
+    .stat-badge-team1 {
+      font-size: 15px;
+      color: white;
+      background-color: rgb(255 54 54) !important;
+    }
+    .stat-badge-team2 {
+      font-size: 15px;
+      color: white;
+      background-color: rgb(24 127 206) !important;
+    }
+  }
+}

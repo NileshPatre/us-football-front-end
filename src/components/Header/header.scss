@@ -1,21 +1,28 @@
 .header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #333;
+  color: white;
   .navbar-brand {
     font-size: 24px;
   }
   .team-logo {
-    width: 40px; // Adjust as needed
-    height: 40px; // Adjust as needed
+    width: 40px;
+    height: 40px;
     margin-right: 5px;
   }
   .team-name {
-    font-size: 18px;
+    font-size: 24px;
   }
   .header__versus {
+    color: white;
     font-size: 24px;
     margin: 10px 0;
-    @media (min-width: 992px) {
-      display: none; // Hide on larger screens
-    }
   }
+}
+.team-icon {
+  height: 100px;
+  width: 100px;
+  margin-right: 10px;
 }

@@ -12,7 +12,9 @@ import {
   Score,
   CardDetails,
   CardGroup,
-  StatsList
+  StatsList,
+  LastFiveGames,
+  LastFiveGamesForChart
 } from "../../types/globalTypes";
 export async function fetchData({
   method,
@@ -57,7 +59,13 @@ export function parseTeamsDetails(
     compareGroup: []
   };
   teamDetails.forEach((team: TeamDetails, teamIndex: number) => {
-    const teamsHeader: TeamsHeaders = { teamName: team.teamName };
+    const teamsHeader: TeamsHeaders = {
+      teamName: team.teamName,
+      logo:
+        teamIndex > 0
+          ? "/assets/images/michigan-wolverines.svg"
+          : "/assets/images/washington-huskies.svg"
+    };
     headerDetails.teamsHeader.push(teamsHeader);
     scoreOverView.teamsHeader.push({
       teamName: team.teamName,
@@ -114,7 +122,8 @@ function parsePlayerStats({
     });
     const parsedData: CardGroup = {
       title: player.player,
-      cardDetails: cardGroup
+      cardDetails: cardGroup,
+      lastFiveGames: parseLastFiveGameData(player.lastFiveGames)
     };
     if (tempCompareGroup[playerIndex]?.cardGroup.length) {
       tempCompareGroup[playerIndex].cardGroup.push(parsedData);
@@ -149,4 +158,16 @@ function parseOverallScoreData({
     }
   });
   return tempStatsList;
+}
+function parseLastFiveGameData(
+  lastFiveGames: LastFiveGames[]
+): LastFiveGamesForChart[] {
+  return lastFiveGames.map((game: LastFiveGames) => {
+    return {
+      gameNo: game.gameNo,
+      gameNoLabel: `Game-${game.gameNo}`,
+      stats: game.stats,
+      statValue: parseInt(game.stats?.toString()?.match(/\d+/)?.[0] ?? "0")
+    };
+  });
 }

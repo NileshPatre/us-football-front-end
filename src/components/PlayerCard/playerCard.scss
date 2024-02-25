@@ -1,0 +1,76 @@
+.group-compare-card {
+  margin: 20px;
+  border: 2px solid #c4c5c7f0;
+  .card-header {
+    font-size: 25px;
+    font-weight: bold;
+    font-style: italic;
+    background: linear-gradient(to right, #d43a28, #4d4be7);
+    color: white;
+  }
+  .card-body {
+    background-color: rgb(45 53 61);
+    color: white;
+
+    .team-header {
+      font-weight: bold;
+      font-size: 20px;
+
+      &.team-header-even {
+        &.bg-primary {
+          background-color: rgb(255 54 54) !important;
+        }
+      }
+
+      &.team-header-odd {
+        &.bg-primary {
+          background-color: rgb(24 127 206) !important;
+        }
+      }
+    }
+  }
+}
+
+.player-compare-card {
+  margin: 30px;
+  .player-card {
+    background-color: #f0f0f0;
+    &:nth-child(odd) {
+      border: 2px solid rgb(255 54 54);
+      margin: 20px;
+    }
+    &:nth-child(even) {
+      border: 2px solid rgb(24 127 206);
+      margin: 20px;
+    }
+  }
+}
+
+.stats-list-group-item {
+  display: flex;
+  justify-content: space-between;
+  background-color: #2d353d;
+  color: white;
+}
+.card-icon {
+  height: 100px;
+  width: 100px;
+}
+.card-title {
+  font-weight: bold;
+}
+.badge-team1 {
+  background-color: rgb(255 54 54) !important;
+  font-size: 15px;
+  color: white;
+}
+
+.badge-team2 {
+  background-color: rgb(24 127 206) !important;
+  font-size: 15px;
+  color: white;
+}
+.badge-stats {
+  font-size: 15px;
+  color: black;
+}
